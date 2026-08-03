@@ -1,0 +1,674 @@
+<!doctype html>
+
+
+<html lang="en">
+
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+        <!-- Tells iOS the webpage can run in full-screen standalone web app mode -->
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <!-- Makes the status bar background completely transparent and overlays it onto the page -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+        <!-- <meta name="theme-color" content="transparent"> -->
+        <title>Premium Beauty Services and Treatments at Faithfully Lashed Studio</title>
+        <meta name="description" content="Explore our beauty services including lash extensions and exclusive VIP memberships for all your beauty treatments needs."/>
+        <link rel="icon" href="/images/fl-logo-nobg.png" type="image/png">
+
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="footer.css">
+        <link rel="stylesheet" href="account.css">
+        <link rel="stylesheet" href="chatroom.css">
+        <link rel="stylesheet" href="reviews.css">
+        <!-- <link rel="stylesheet" href="static/css/dashboard.css"> -->
+        <!-- <link rel="stylesheet" href="messenger.css"> -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+
+        <script type="module" src="functions.js" defer></script>
+        <script type="module" src="globalvariables.js" defer></script>
+        <script type="module" src="transitionscript.js" defer></script>
+        <script type="module" src="searchscript.js" defer></script>
+        <script type="module" src="registrationscript.js" defer></script>
+        <!-- <script type="module" src="../static/js/loginscript.js" defer></script> -->
+        <script type="module" src="fetchsession.js" defer></script>
+        <script type="module" src="chatscript.js" defer></script>
+        <!-- <script type="module" src="../static/js/calendar.js" defer></script> -->
+        <script type="module" src="reviews.js" defer></script>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    </head>
+
+<div style="position:fixed; top:0px; background:transparent; backdrop-filter: blur(42px); -webkit-backdrop-filter: blur(42px); z-index:11;"></div>
+    <body style="position:relative;">
+        <img class="bannerimage" src="/images/fl-banner-cropped3.jpeg" width="104%" height="100%" style="border:2px none red; margin-left:-2%; margin-top:-9px">
+
+
+        <!-- <img class="titleimage banner" src="{{ url_for('static', filename='images/fl-banner-cropped3.jpeg') }}" width="104%" height="100%" style="border:2px none red; margin-left:-2%; margin-top:-9px"> -->
+            <div id="headerpadding" class="header-padding header-padding-fade"></div>
+            <header id="header" class="reveal" data-direction="top">
+
+                <div class="header-navigation">
+
+                    <div class="header-buttonhover"><a class="navigation-item navigation-homebtn header-buttonhover underline-animation" href="{{ url_for('index') }}">
+                            <svg fill="#eda8c4" height="14px" width="14px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 337.588 337.588" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="XMLID_10_"> <path id="XMLID_11_" d="M275.448,142.723c-17.413,0-33.63,7.095-45.355,19.658c-11.725-12.563-27.942-19.658-45.355-19.658 c-34.264,0-62.14,27.876-62.14,62.141c0,62.447,75.357,112.811,98.454,126.758c2.739,1.654,5.876,2.529,9.074,2.529c0,0,0,0,0,0 c3.171,0,6.287-0.861,9.01-2.491c23.096-13.819,98.453-63.804,98.453-126.796C337.588,170.599,309.712,142.723,275.448,142.723z"></path> <path id="XMLID_12_" d="M77.635,111.319c-7.479,0-14.498,2.759-19.954,7.72c-5.456-4.96-12.474-7.72-19.954-7.72 c-16.619,0-30.139,13.845-30.139,30.863c0,29.659,34.148,53.181,44.613,59.683c1.655,1.028,3.554,1.572,5.494,1.572 c1.924,0,3.811-0.535,5.456-1.548c10.468-6.444,44.623-29.793,44.623-59.707C107.773,125.165,94.253,111.319,77.635,111.319z"></path> <path id="XMLID_13_" d="M171.625,109.265c1.833,1.107,3.933,1.692,6.073,1.692c0,0,0,0,0.001,0c2.122,0,4.208-0.577,6.029-1.667 c12.679-7.585,54.045-35.062,54.045-70.139c0-19.693-16.021-35.714-35.714-35.714c-9.197,0-17.813,3.444-24.379,9.605 c-6.565-6.161-15.182-9.605-24.379-9.605c-19.693,0-35.714,16.021-35.714,35.714C117.588,73.928,158.949,101.609,171.625,109.265z"></path> <path id="XMLID_14_" d="M34.08,71.939c1.426,0.861,3.06,1.316,4.725,1.317c0,0,0,0,0,0c1.651,0,3.273-0.449,4.691-1.297 c10.25-6.133,34.092-22.766,34.092-44.683c0-13.146-10.694-23.84-23.84-23.84c-5.541,0-10.766,1.873-14.954,5.261 C34.606,5.31,29.381,3.437,23.84,3.437C10.694,3.437,0,14.131,0,27.277C0,49.012,23.833,65.751,34.08,71.939z"></path> </g> </g></svg>
+                            HOME
+                    </a></div>
+
+                    <div class="header-buttonhover"><a class="navigation-item navigation-servicesbtn header-buttonhover underline-animation" href="{{ url_for('services') }}">SERVICES</a></div>
+
+                    <div class="header-buttonhover"><a class="navigation-item navigation-membershipsbtn header-buttonhover underline-animation" href="memberships.html">MEMBERSHIPS</a></div>
+
+                    <div class="header-buttonhover"><a class="navigation-item navigation-faqsbtn header-buttonhover underline-animation" href="faqs.html">FAQs</a></div>
+
+                    <button class="navigation-item navigation-morebtn"><div class="header-buttonhover">MORE&nbsp;<svg class="arrow" style="vertical-align:-14%;" width="1.2rem" height="1.2rem" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M5.70711 9.71069C5.31658 10.1012 5.31658 10.7344 5.70711 11.1249L10.5993 16.0123C11.3805 16.7927 12.6463 16.7924 13.4271 16.0117L18.3174 11.1213C18.708 10.7308 18.708 10.0976 18.3174 9.70708C17.9269 9.31655 17.2937 9.31655 16.9032 9.70708L12.7176 13.8927C12.3271 14.2833 11.6939 14.2832 11.3034 13.8927L7.12132 9.71069C6.7308 9.32016 6.09763 9.32016 5.70711 9.71069Z" fill="currentColor"/></svg></div></button>
+                    <div class="navigation-morebtn-menu">
+                        <a class="header-buttonhover" href="contact.html">CONTACT US</a>
+                        <a class="header-buttonhover" href="memberships.html">MEMBERSHIPS</a>
+                        <a class="header-buttonhover" href="reviews.html">TESTIMONIALS</a>
+                        <a class="header-buttonhover" href="gallery.html">GALLERY</a>
+                        <a class="header-buttonhover" href="services(finalized).html">SHOP</a>
+                    </div>
+
+                </div>
+
+
+                <div class="header-tools">
+
+                    <button popovertarget="dashboardwindow" id="header-dashboardbtn" class="tools-item tools-dashboardbtn header-buttonhover dashboardswitch profile-picture-wrapper2" style="display:none;">
+                        <img src="/images/defaultprofilepicture.png" height="100%" width="100%" class="profilepicture">
+                    </button>
+
+                    <button popovertarget="accountwindow" id="header-accountbtn" class="tools-item tools-accountbtn header-buttonhover accountswitch"><svg viewBox="0 0 24 24" fill="currentColor" width="2rem" height="2rem" data-ux="UtilitiesMenuIcon" data-typography="NavAlpha" class="x-el x-el-svg c2-1b c2-1c c2-4d c2-y c2-7w c2-7x c2-1g c2-10 c2-11 c2-12 c2-13 c2-1d c2-1h c2-m c2-1e c2-4 c2-1f c2-14 c2-15 c2-w c2-5 c2-6 c2-7 c2-8"><path fill-rule="evenodd" d="M5.643 19.241a.782.782 0 0 1-.634-.889c.317-2.142 1.62-4.188 3.525-5.244l.459-.254-.39-.352a4.89 4.89 0 0 1-.797-6.327 4.747 4.747 0 0 1 2.752-2.003 4.894 4.894 0 0 1 6.092 5.72c-.211 1.042-.802 1.97-1.59 2.683l-.308.28.459.253c1.876 1.04 3.185 3.131 3.53 5.26a.765.765 0 0 1-.742.883c-.367.005-.697-.25-.753-.613-.52-3.384-4.067-6.087-7.702-4.324-1.628.79-2.714 2.511-3.014 4.313a.76.76 0 0 1-.887.614zm2.873-10.36a3.36 3.36 0 0 0 3.356 3.355A3.36 3.36 0 0 0 15.23 8.88a3.361 3.361 0 0 0-3.358-3.357A3.36 3.36 0 0 0 8.516 8.88z"></path></svg></button>
+
+                    <a class="tools-item tools-cartbtn header-buttonhover" href="{{ url_for('cart') }}"><svg viewBox="115.712 115.712 297.6 299.6" xmlns="http://www.w3.org/2000/svg" width="1.4rem" height="1.4rem" stroke-width=".7rem"><title>Shopping_Cart</title><g data-name="Shopping Cart" id="Shopping_Cart"><g data-name="Shopping Cart" id="Shopping_Cart-2"><path d="M351.9,329.5063H206.81l-3.0723-12.56H368.1614l26.63-116.019L177.5618,174.8861l-9.9526-58.0885h-50.4v21.945h31.8934l35.2332,191.2465a32.927,32.927,0,1,0,36.3628,21.4622H320.9431A32.8248,32.8248,0,1,0,351.9,329.5063ZM181.4272,197.4486l186.5106,22.3589-17.2592,75.194H198.9174Z"/></g></g></svg></a>
+                    <div id="tools-cart-display" class="tools-cart-display">Your cart is empty.</div>
+
+                    <button popovertarget="searchwindow" class="tools-item tools-searchbtn header-buttonhover searchswitch"><svg viewBox="0 0 24 24" fill="currentColor" width="2rem" height="2rem" data-ux="UtilitiesMenuIcon" data-aid="SEARCH_ICON_RENDERED" data-typography="NavAlpha" class="x-el x-el-svg c2-1b c2-1c c2-t c2-y c2-3l c2-1g c2-10 c2-11 c2-12 c2-13 c2-1d c2-m c2-1q c2-3m c2-3n c2-3o c2-1e c2-4 c2-1f c2-14 c2-15 c2-w c2-5 c2-3p c2-6 c2-7 c2-8"><path fill-rule="evenodd" d="M19.504 18.461a.76.76 0 0 1 0 1.038.652.652 0 0 1-.956 0L15.2 15.993a6.142 6.142 0 0 1-3.83 1.353C7.858 17.346 5 14.353 5 10.673 5 6.994 7.858 4 11.371 4c3.513 0 6.371 2.994 6.371 6.673a6.82 6.82 0 0 1-1.536 4.333l3.298 3.455zM6.377 10.673c0 2.884 2.24 5.231 4.994 5.231 2.754 0 4.994-2.347 4.994-5.231s-2.24-5.23-4.994-5.23c-2.754 0-4.994 2.346-4.994 5.23z"></path></svg></button>
+
+                </div>
+
+
+                <div class="header-dropdown">
+                    <button id="header-dropdownbtn" class="tools-item tools-dropdownbtn">
+                        <div popovertarget="dashboardwindow" id="header-dashboardswitch" class="header-dashboardbtn-hover dashboardswitch profile-picture-wrapper3" style="display:none;"><img src="/images/defaultprofilepicture.png" height="100%" width="100%" class="profilepicture"></div>
+
+                        <div class="svgrotate" style="anchor-name: --sandwichsvg-anchor;"><svg class="header-buttonhover" viewBox="0 0 1024.00 1024.00" height="1.24rem" width="1.24rem" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="65.536"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="currentColor" d="M160 448a32 32 0 0 1-32-32V160.064a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V416a32 32 0 0 1-32 32H160zm448 0a32 32 0 0 1-32-32V160.064a32 32 0 0 1 32-32h255.936a32 32 0 0 1 32 32V416a32 32 0 0 1-32 32H608zM160 896a32 32 0 0 1-32-32V608a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32v256a32 32 0 0 1-32 32H160zm448 0a32 32 0 0 1-32-32V608a32 32 0 0 1 32-32h255.936a32 32 0 0 1 32 32v256a32 32 0 0 1-32 32H608z"></path></g></svg></div>
+                    </button>
+                    <div class="tools-dropdownbtn-menu">
+                        <button id="tools-dropdownbtn-menu-dashboardbtn" class="tools-accountname tools-dropdownbtn-menu-btn header-buttonhover dashboardswitch" data-databasekey="fullname" style="display:none; white-space:normal; cursor:pointer;">DASHBOARD</button>
+                        <button popovertarget="accountwindow" class="tools-dropdownbtn-menu-btn header-buttonhover accountswitch">ACCOUNT</button>
+                        <a class="tools-dropdownbtn-menu-btn header-buttonhover" href="reviews.html">SHOP</a>
+                        <button popovertarget="searchwindow" class="tools-dropdownbtn-menu-btn header-buttonhover searchswitch">SEARCH</button>
+                    </div>
+                </div>
+
+            </header>
+
+
+        <br>
+        <!-- <br> -->
+        <!-- <br> -->
+        <!-- <div class="blurred-backdrop"></div> -->
+        <main style="overflow:visible;">
+            <!-- <a href="templates/status.html">status</a> -->
+            <!-- <a href="{{ url_for('status', filename='templates/status.html') }}">status2</a> -->
+
+
+            <br>
+            <div style="display: grid; grid-template-columns: 1fr; grid-auto-flow:column; min-width:97%; max-width:97%; justify-self: center; justify-items:space-evenly; border-radius:8px; border:1px solid rgba(255,255,255,.42); background:#fff0f5b9; backdrop-filter: blur(8px) saturate(94%); box-shadow: 1px 2px 8px rgba(0,0,0,.29); font-family: 'Nunito'; font-size: 14px; padding:8px; padding-inline:19px; margin-bottom:8px; white-space: nowrap;">
+                <div class="current-date-time"></div><div class="current-status" style="font-family: 'Nunito';"></div>
+                <!-- <div class="availability-message"></div> -->
+            </div>
+            <!-- <br> -->
+            <!-- <br> -->
+            <section id="section1" class="homepage-primarygrid reveal">
+
+                <div class="homepage-primarygrid-intro reveal boxshadow">
+                    <img class="homepage-primarygrid-intro-portrait" src="/images/headshot-transparent.png" alt="headshot" style="width:100%;height:100%;object-fit:cover;background:transparent;">
+                    <div class="homepage-primarygrid-intro-introduction reveal" data-direction="bottom">
+                        <div class="glasscard-primary reveal" style="min-width:100%;width:100%; max-width:100%;" data-direction="left">
+                            <br>
+                            <div style="font-family: 'Fjalla One'; font-size: clamp(8px, 3.94cqw, 29px); text-align:center; white-space:nowrap;"><strong>Your Private Lash Escape in Nashville 🤍</strong></div>
+
+                            <br>
+
+                            <div style="font-size: clamp(16px, 3.24cqw, 17px);">
+                                <p style="text-align:justify left">Hey, babe! I'm, the owner of Faithfully Lashed, your cozy home-based lash studio in Nashville, TN.</p>
+                                <p style="text-align:justify left">I specialize in Classic, Hybrid, and Volume Lash Extensions designed to enhance your natural beauty and lifestyle.
+                                    Each set is fully customized with intention, whether you love a clean, natural look or full, fluffy glam.</p>
+                                <p style="text-align:justify left">I also offer Lash Lifts, Brow Laminations, and Brow Tinting for clients who prefer low-maintenance beauty with soft, luxury results.
+                                My goal is to give you more than just great lashes; I want every appointment to feel peaceful, personal, and confidence-boosting from start to finish.</p>
+                                <p style="text-align:justify left">At Faithfully Lashed Studio, your first visit isn’t just an appointment — it’s an introduction to what luxury lash care actually feels like.</p>
+                                <br>
+                                <p style="text-align:justify left">Every new client receives:</p>
+
+                                <p>→ A complimentary style consultation</p>
+                                <p>→ A complimentary lash bath with your service</p>
+                                <p>→ A lash look customized specifically for your eye shape and lifestyle</p>
+                            </div>
+
+                            <br>
+
+                            <div class="homepage-primarygrid-intro-buttons">
+                                <a href="services(finalized).html"><button class="homepage-primarygrid-intro-btn buttonhover" onclick="document.getElementById('quickBook').click()">Book Your First Set</button></a>
+                                <a href="services(finalized).html"><button class="homepage-primarygrid-intro-btn buttonhover" onclick="document.getElementById('services').click()">Contact Us</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="homepage-primarygrid-info reveal boxshadow" data-direction="bottom">
+                    <div class="glasscard-primary reveal" data-direction="right" style="height:fit-content; width:100%; max-width:524px; justify-self:center; font-weight:900;">
+                        <!-- style="font-family: 'Fjalla One'; darkgrey" -->
+                        <h2 style="font-family: 'Fjalla One'; font-size: clamp(11px, 4cqw, 29px); text-align:center; white-space:nowrap;">Hours & Contact</h2>
+
+                        <div style="display: grid; grid-template-columns: 1fr; grid-auto-flow:row; min-width:100%; justify-self: center; justify-items:center; border-radius:8px; border:1px solid rgba(255,255,255,.14); background:transparent; box-shadow: 0 0 8px rgba(0,0,0,.24);  font-family: 'Nunito'; font-size: 17px; padding:8px; padding-inline: 24px; margin-bottom:0px; white-space: nowrap;">
+                            <div class="current-date-time"></div><div class="current-status" style="font-family: 'Nunito'; font-size: 14px;"></div>
+                            <!-- <div class="availability-message"></div> -->
+                        </div>
+
+                        <br>
+                        <div>Mon–Fri | 8:00am - 7:00pm</div>
+                        <div>Saturday | 9:00am - 5:00pm</div>
+                        <div>Sunday | Closed</div>
+                        <div>Major Holidays | Closed</div>
+                        <br>
+                        <hr style="border:none;height:1px;background:var(--primaryplaceholdercolor);margin:11px 0;border-radius:6px">
+                        <br>
+                        <div style="font-weight:700">Faithfully Lashed</div>
+                        <div style="margin-top:6px;">Nashville, TN<br>(We Come To You!)<br><br>Email: info@faithfullylashedstudio.com<br>Phone: +1 (629) 400-8232</div>
+                        <div style="margin-top:50px;font-size:13px;">We're closed on major holidays. If your date falls on a major holiday the system will not allow booking and will prompt alternate dates.</div>
+                    </div>
+                </div>
+
+
+                <div class="homepage-primarygrid-mailinglist reveal boxshadow" data-direction="left">
+
+                    <div class="mailinglist-form-container" style="display:grid; justify-self:center;">
+
+                        <div class="mailinglist-form-container-card reveal" data-direction="bottom">
+                            <div class="mailinglist-description">
+                                <div style="font-family: 'Fjalla One'; font-size: clamp(8px, 6.08cqw, 29px); text-align:center; white-space:nowrap;"><strong>BECOME A FAITHFULLY LASHED INSIDER &nbsp;<svg fill="#eda8c4" height="1.2rem" width="1.2rem" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 337.588 337.588" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="XMLID_10_"> <path id="XMLID_11_" d="M275.448,142.723c-17.413,0-33.63,7.095-45.355,19.658c-11.725-12.563-27.942-19.658-45.355-19.658 c-34.264,0-62.14,27.876-62.14,62.141c0,62.447,75.357,112.811,98.454,126.758c2.739,1.654,5.876,2.529,9.074,2.529c0,0,0,0,0,0 c3.171,0,6.287-0.861,9.01-2.491c23.096-13.819,98.453-63.804,98.453-126.796C337.588,170.599,309.712,142.723,275.448,142.723z"></path> <path id="XMLID_12_" d="M77.635,111.319c-7.479,0-14.498,2.759-19.954,7.72c-5.456-4.96-12.474-7.72-19.954-7.72 c-16.619,0-30.139,13.845-30.139,30.863c0,29.659,34.148,53.181,44.613,59.683c1.655,1.028,3.554,1.572,5.494,1.572 c1.924,0,3.811-0.535,5.456-1.548c10.468-6.444,44.623-29.793,44.623-59.707C107.773,125.165,94.253,111.319,77.635,111.319z"></path> <path id="XMLID_13_" d="M171.625,109.265c1.833,1.107,3.933,1.692,6.073,1.692c0,0,0,0,0.001,0c2.122,0,4.208-0.577,6.029-1.667 c12.679-7.585,54.045-35.062,54.045-70.139c0-19.693-16.021-35.714-35.714-35.714c-9.197,0-17.813,3.444-24.379,9.605 c-6.565-6.161-15.182-9.605-24.379-9.605c-19.693,0-35.714,16.021-35.714,35.714C117.588,73.928,158.949,101.609,171.625,109.265z"></path> <path id="XMLID_14_" d="M34.08,71.939c1.426,0.861,3.06,1.316,4.725,1.317c0,0,0,0,0,0c1.651,0,3.273-0.449,4.691-1.297 c10.25-6.133,34.092-22.766,34.092-44.683c0-13.146-10.694-23.84-23.84-23.84c-5.541,0-10.766,1.873-14.954,5.261 C34.606,5.31,29.381,3.437,23.84,3.437C10.694,3.437,0,14.131,0,27.277C0,49.012,23.833,65.751,34.08,71.939z"></path> </g> </g></svg></strong></div>
+                                <br>
+                                <div style="color:black;"><strong>Get exclusive offers, booking updates, and lash care tips straight to your inbox. Stay in the loop with all things lashes, beauty, and self-care.</strong></div>
+                                <br>
+                                <div style="color:black;"><strong>Sign up to receive 10% off your first service ♡</strong></div>
+                                <br>
+                            </div>
+
+                            <form id="mlform" class="mailinglist-forminput-grid" action="https://api.web3forms.com/submit" method="POST">
+                                <input type="hidden" name="access_key" value="a07cbfdb-3324-4558-80f2-e67349af9fc8">
+                                <input type="hidden" name="subject" value="New Submission from Web3Forms">
+                                <input type="checkbox" name="botcheck" id="" style="display: none;">
+                                    <div class="mailinglist-fullname-phonenumber mailinglist-forminput-item">
+                                        <div style="width:100%;"><label>Full Name</label><br><input autocomplete="on" id="mlfullname" name="mlname" placeholder="your name" type="text" required></div>
+                                        <div style="width:100%;"><label>Phone Number</label><br><input autocomplete="on" id="mlphone" name="mlphone" placeholder="your phone number" type="text" required></div>
+                                    </div>
+                                    <!-- <div class="mailinglist-phonenumber mailinglist-forminput-item"><label>Phone Number</label><input autocomplete="on" id="mlphone" name="mlphone" placeholder="your phone number" type="text" required></div> -->
+                                    <div class="mailinglist-email mailinglist-forminput-item"><div style="width:100%;"><label>Email</label><br><input autocomplete="on" id="mlemail" name="mlemail" placeholder="your email" type="email" required></div></div>
+                                <input type="hidden" name="redirect" value="none">
+                                <button popovertarget="mailinglist-confirmation-window" id="mlbtn" class="mailinglist-submitbtn buttonhover" type="submit">SIGN ME UP!</button>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section id="section1">
+
+
+            <br><br>
+
+
+            <section id="section2" class="homepage-secondarygrid reveal" data-direction="top">
+
+                    <div class="homepage-secondarygrid-services-label"><h2>LASHES, BROWS, OR FACIALS?</h2></div>
+                    <div class="homepage-secondarygrid-services reveal" data-direction="right">
+                        <div class="homepage-secondarygrid-services-lashes homepage-secondarygrid-item boxshadow hover serviceclick1">LASHES</div>
+                        <div class="homepage-secondarygrid-services-brows homepage-secondarygrid-item boxshadow hover serviceclick2">BROWS</div>
+                        <div class="homepage-secondarygrid-services-facials homepage-secondarygrid-item boxshadow hover serviceclick3">FACIALS</div>
+                    </div>
+
+
+                    <div class="homepage-secondarygrid-highlights-label"><h2>CHECK OUT WHAT'S POPULAR!</h2></div>
+                    <div class="homepage-secondarygrid-highlights reveal" data-direction="bottom">
+                        <div class="homepage-secondarygrid-highlights-hightlight1 homepage-secondarygrid-item-b boxshadow hover highlight1">LASH LIFT & TINT</div>
+                        <div class="homepage-secondarygrid-highlights-hightlight2 homepage-secondarygrid-item-b boxshadow hover highlight2">CLASSIC</div>
+                        <div class="homepage-secondarygrid-highlights-hightlight3 homepage-secondarygrid-item-b boxshadow hover highlight3">HYBRID</div>
+                    </div>
+
+
+
+            </section id="section2">
+
+
+            <br><br>
+
+
+            <section id="section3">
+
+
+                <div class="app reveal" data-direction="top" style="font-family:'Fjalla One';width:97%; height:fit-content; padding: 24px; box-shadow:0 7px 9px rgba(2,6,23,0.4);">
+
+
+                    <div class="reviewcard reveal boxshadow(off)" data-direction="left" style="display:flex;background-color: rgba(255, 255, 255, 0.64);flex-direction:column;gap:12px;align-self:center; justify-self:center; align-content:center; justify-content:center; min-height:244px; height:100%; width:100%;">
+
+                        <h2 class="reviewh2">WHAT CLIENTS SAY &nbsp;💬💕</h2>
+                        <div class="ticker-wrap" id="tickerWrap" role="region" aria-label="Live reviews ticker">
+                            <div style="display:flex;align-items:center;">
+                                <div class="ticker" id="tickerA" aria-hidden="false"></div>
+                                <div class="ticker" id="tickerB" aria-hidden="true"></div>
+                            </div>
+                        </div>
+                        <!-- <div class="small">Hover the ticker to pause. New reviews append to the feed immediately.</div> -->
+
+                    </div>
+
+
+                    <div class="reviewcard2 boxshadow reveal" data-direction="right" style="display:flex;background-color: rgba(255, 255, 255, 0.64);flex-direction:column;gap:9px; align-self:center; justify-self:center; height:100%; max-height:100%;width:100%; padding-bottom:4px;">
+
+                        <h2 class="reviewh2">LEAVE A REVIEW ✏️💕</h2>
+                        <form id="reviewForm" autocomplete="off">
+                            <div class="row">
+                                <label class="reviewlabel" for="name">NAME</label>
+                                <input class="reviewinput" id="name" name="name" type="text" placeholder="your name" style="border:none; min-width:19%; clip-path: inset(0px 0px 0px 0px) !important; box-shadow: none !important; border-image-width:0;" required />
+                            </div>
+
+                            <div class="row">
+                                <label class="reviewlabel">RATING</label>
+                                <div class="stars" id="starGroup" aria-label="Rating">
+                                    <span class="star" data-value="1" title="1 star">★</span>
+                                    <span class="star" data-value="2" title="2 stars">★</span>
+                                    <span class="star" data-value="3" title="3 stars">★</span>
+                                    <span class="star" data-value="4" title="4 stars">★</span>
+                                    <span class="star" data-value="5" title="5 stars">★</span>
+                                </div>
+                            </div>
+
+                            <div class="row" style="flex-direction:column;align-items:stretch">
+                                <label class="reviewlabel" for="comment">REVIEW</label>
+                                <textarea class="reviewtextarea" id="comment" name="comment" placeholder="share your experience..." style="caret-color:#B76E79; border-radius:0px; border:none; border-bottom:1px solid #ffb6d2;" required></textarea>
+                            </div>
+
+                            <div class="row" style="justify-content:space-between;align-items:center">
+                                <button type="submit" class="btn" style="color:#ffb6d2; margin-top:24px; margin-bottom:-19px; border-radius:7px; padding:0px;">SUBMIT REVIEW</button>
+                                <!-- <div class="hint">Reviews feed into a continuous horizontal ticker below.</div> -->
+                            </div>
+                        </form>
+
+                        <div class="controls">
+                            <input class="reviewinput" id="speed" type="hidden" min="20" max="300" value="42"/>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section id="section3">
+
+
+            <br><br>
+
+
+
+            <section id="section4">
+
+                <div style="display:block; place-self:center; place-items:center; place-content:center; min-width:97%; max-width:97%;">
+                    <div class="igcard reveal" data-direction="top" style="display:block; border:none; border-radius:14px;padding:0px;height:fit-content; width:fit-content; place-self:center; place-items:center; place-content:center; min-width:100%; box-shadow:0 7px 9px rgba(2,6,23,0.4); overflow:hidden;">
+                    <!-- <iframe class="instagram-media instagram-media-rendered" id="instagram-embed-0" src="https://www.instagram.com/faithfullylashedstudio/embed/?cr=1&amp;v=14&amp;wp=2478&amp;rd=http%3A%2F%2Flocalhost%3A5503&amp;rp=%2Fportfolio%2FFaithfully%2520Lashed%2Ftemplates%2F#%7B%22ci%22%3A0%2C%22os%22%3A497.89999997615814%2C%22ls%22%3A288.09999999403954%2C%22le%22%3A389.89999997615814%7D" allowtransparency="true" allowfullscreen="true" frameborder="0" height="444" data-instgrm-payload-id="instagram-media-payload-0" scrolling="no" style="margin:0px; background: white; max-width: 100%; width: 100%; border: 1]0px solid rgb(219, 219, 219); box-shadow: none; display: block; min-width: 326px; border-radius: 14px !important; margin: 0px 0px; padding: 0px !important;"></iframe> -->
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/faithfullylashedstudio/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="margin:0px !important; background:#FFF; inset:none !important; border:0; border-radius:14px !important; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0px !important; padding:0px !important; max-width:100%; min-width:326px; width:100%;"><div style="padding:0px !important; margin:0px !important; overflow:hidden !important"> <a href="https://www.instagram.com/faithfullylashedstudio/?utm_source=ig_embed&amp;utm_campaign=loading" style="display:none; background:#FFFFFF; line-height:0; padding:0 !important; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 0px; margin-right: 0px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 0px; margin-bottom: 0px !important; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 1; height: 0px; width: 60px;"></div></div></div><div style="padding: 0% 0;"></div> <div style="display:block; height:0px; margin:0 !important; width:50px;"><svg width="50px" height="0px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this profile on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 0px !important; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 0px !important;"> <div style="background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 0px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0 !important; margin-top:0px; overflow:hidden; padding:0px 0 0px !important; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/faithfullylashedstudio/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank">Faithfully Lashed Studio🤍 ™️</a> (@<a href="https://www.instagram.com/faithfullylashedstudio/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank">faithfullylashedstudio</a>) • Instagram photos and videos</p></div></blockquote>
+                        <script async src="//www.instagram.com/embed.js"></script>
+                    </div>
+                </div>
+
+            </section id="section4">
+
+
+            <br><br>
+
+
+            <section id="section5" style="margin-bottom:24px;">
+
+                <div class="boxshadow reveal" data-direction="left bottom" style="background-color:lavenderblush;border-radius: 11px;text-align:left; margin:0 auto;padding:24px;padding-right:42px;max-width:97%;list-style-position:inside;box-shadow:0 7px 9px rgba(2,6,23,0.4);">
+                    <h2>Cancellation Policy❗</h2>
+                    <div style="font-family: 'Nunito'">
+                        <p style="margin:0">At <strong>Faithfully Lashed</strong>, I value both your time and mine. As a solo artist, every appointment is specially reserved just for you. To ensure fairness and respect for all clients, the following cancellation policy is in place:</p>
+                        <br>
+                        <p style="margin:0"><span><strong>📅 Cancellation Notice</strong></span></p><p style="margin:0"><ul>
+                        <span><li>I kindly ask for <strong>at least 24 hours notice</strong> to cancel or reschedule your appointment.</li></span>
+                        <li>Cancellations made with less than 24 hours notice will result in <strong>loss of your $25 deposit</strong>.</li>
+                        <li>Same-day cancellations or no-shows may be charged up to <strong>50% of the full service price</strong>.</li>
+                        </ul></p><p style="margin:0"><span><strong>💬 How to Cancel</strong></span></p><p style="margin:0"><ul>
+                        <li>Cancellations must be made via text or through the booking system.</li>
+                        <li>If you’re feeling sick or experiencing an emergency, please communicate with me as soon as possible. I understand life happens, but communication is key.</li>
+                        </ul></p><p style="margin:0"><span><strong>🚫 No-Show Policy</strong></span></p><p style="margin:0"><ul>
+                        <li>No-call/no-shows will result in <strong>forfeiture of your deposit</strong> and may require full prepayment for future bookings or result in being declined future services.</li>
+                        </ul></p><p style="margin:0"><span><em>*No guests or extra company during service</em><br>
+                        </span></p><p style="margin:0"><span>By booking your appointment, you agree to this cancellation policy. Thank you for respecting my time and supporting my small business 💕</span>
+                    </div>
+                    <br>
+                </div>
+
+            </section id="section5">
+
+
+
+            <section id="hiddensection" style="display:flex;">
+                <div id="accountwindow" class="accountwindow" popover>
+
+                    <div id="signincontainer" class="signincontainer">
+                        <img class="account-fl-logo" src="/images/fl-logo-nobg.png">
+                        <form id="signinform" name="signinform" action="/signin" class="lrform signintitle" method="post">
+                            <!-- <h1>Sign In</h1> -->
+                            <div class="input-box"><input id="usersignin" name="usersignin" type="text" placeholder="Email or Phone Number"><i class='bx bxs-user'></i></div>
+                            <div class="input-box"><input id="passwordsignin" name="passwordsignin" type="password" placeholder="Password"><i class='bx bxs-lock-alt'></i></div>
+                            <div id="signinerror" class="signinerror" style="margin-top: 0px; margin-bottom: 24px;"></div>
+                            <button id="forgotpassword-btn" class="forgotpassword-btn buttonhover" type="button">Forgot Password?</button><br>
+                            <button id="loginsubmit" name="loginsubmit" type="submit" class="loginsubmit lrbtn buttonhover" style="margin-top:29px;">Login</button>
+                            <br>
+                            <button class="lrbtn register-btn buttonhover" style="margin-block:24px;" type="button">Register</button>
+                            <p>or login with social platforms</p>
+                            <div class="social-icons">
+                                <a href="#" class="buttonhover"><i class='bx bxl-apple social-icon'></i></a>
+                                <a href="#" class="buttonhover"><i class='bx bxl-google social-icon'></i></a>
+                                <a href="#" class="buttonhover"><i class='bx bxl-instagram social-icon'></i></a>
+                                <a href="#" class="buttonhover"><i class='bx bxl-facebook social-icon'></i></a>
+                            </div>
+                        </form>
+                    </div id="signincontainer">
+
+
+                    <div id="registercontainer" class="registercontainer">
+                        <div>
+                            <img class="logo-img" src="/images/fl-logo-nobg.png" height="49%" width="49%" style="background:none;object-fit:cover;padding:0px;border:1px none white;">
+                            <br>
+                            <!-- <h1 class="welcome-text" style="font-family:'Nunito'; color: pink">Registration 💕</h1> -->
+                        </div>
+                        <form id="registerform" name="registerform" action="/register" class="lrform" method="post">
+                            <!-- <h1 class="r1">Registration</h1> -->
+                            <div class="input-box" style="margin-top:0px;"><input id="userfullname" name="userfullname" type="text" placeholder="Full Name" required><i class='bx bxs-user'></i></div>
+                            <div class="input-box"><input id="userphone" name="userphone" type="tel" placeholder="Phone Number" required><i class='bx bxs-phone'></i></div>
+                            <div class="input-box"><input id="useremail" name="useremail" type="email" placeholder="Email" required><i class='bx bxs-envelope'></i></div>
+                            <div class="input-box"><input id="userpassword" name="userpassword" type="password" placeholder="Password" required><i class='bx bxs-lock-alt'></i></div>
+                            <div class="input-box"><input type="password" placeholder="Confirm Password" required><i class='bx bxs-lock-alt'></i></div>
+                            <div id="registrationerror" class="registrationerror" style="margin-top: 0px; margin-bottom: 8px;"></div>
+                            <button id="registersubmit" name="registersubmit" type="submit" class="lrbtn buttonhover" style="margin-block:11px;">Register</button>
+
+                            <!-- <p style="color: pink; margin-top:24px;">Already have an account?</p> -->
+                            <button class="lrbtn login-btn buttonhover" type="button">Return to Login</button>
+                            <p>or register with social platforms</p>
+                            <div class="social-icons">
+                                <a href="#" class="buttonhover"><i class='bx bxl-apple social-icon'></i></a>
+                                <a href="#" class="buttonhover"><i class='bx bxl-google social-icon'></i></a>
+                                <a href="#" class="buttonhover"><i class='bx bxl-instagram social-icon'></i></a>
+                                <a href="#" class="buttonhover"><i class='bx bxl-facebook social-icon'></i></a>
+                            </div>
+                        </form>
+                    </div id="registercontainer">
+
+
+                    <div id="forgotpasswordcontainer" class="forgotpasswordcontainer">
+                        <img class="account-fl-logo-2" src="/images/fl-logo-nobg.png">
+                        <form class="forgotpasswordform">
+                            <div class="input-box">
+                                Please enter your email or phone number<br> to reset your password<br><br>
+                                <input id="forgotten-signin" name="forgotten-signin" type="text" placeholder="Email or Phone Number">
+                                <i class='bx bxs-user'></i>
+                            </div>
+                            <br>
+                            <button class="forgotpassword-return-btn buttonhover" type="button">Return to Login</button>
+                        </form>
+                    </div id="forgotpasswordcontainer">
+
+
+                </div id="accountwindow">
+
+
+                <div id="searchwindow" class="searchwindow" popover>
+                    <img class="account-fl-logo-3" src="/images/fl-logo-nobg.png">
+                    <form id="searchform" class="searchform" action="/search" method="get">
+                        <h4 style="text-align:center;">Looking for something specific?</h4>
+                        <br>
+                        <input autocomplete="on" class="searchinput" id="searchinput" name="search" placeholder="search" type="text">
+                        <br>
+                        <ul id="results-list" style="display:none;"></ul>
+                        <br>
+                        <button class="searchsubmit-btn buttonhover" type="submit">SEARCH</button>
+                    </form>
+
+                </div id="searchwindow">
+
+
+
+                <div id="confirmation" class="confirmation" popover>
+
+                    <div class="confirmationbody" style="grid-area:item-1">
+                        <h2 style="font-size:2rem;text-align:center; margin-top:4px; margin-bottom:-4px">THANKS FOR JOINING!</h2>
+                        <br>
+                        <div id="mlresult"><h4> <!-- You're registration was successful! --> </h4></div>
+                        <br>
+                        <button class="btn mlcontinue" type="submit" style="color:pink; background:#00000070;height:fit-content; width:fit-content;border-radius:7px">CONTINUE</button>
+                        <div>
+                            <br><br>
+                            <h6 style="font-size:.7rem; margin-top:0px;text-align:justify; margin-bottom:-7px">
+                                By submitting this form, you consent to receive informational (e.g., order updates) and/or marketing texts (e.g.,
+                                    cart reminders) from Faithfully Lashed Studio including texts sent by autodialer.
+                                    Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies.
+                                    Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available). Privacy Policy & Terms.
+                            </h6>
+                        </div>
+                    </div>
+
+                </div id="confirmation">
+
+
+
+
+                <div id="messenger">
+
+
+                    <div popovertarget="messengerwindow" class="messengerswitch reveal" data-direction="right" style="display:flex;position:fixed;right:19px;bottom:11px;align-items:right;">
+                        <svg class="messengerbtn-hover" height="64px" width="64px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-64 -64 663.20 663.20" xml:space="preserve" fill="currentColor" stroke="currentColor" stroke-width="12.288"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:currentColor;} </style> <g> <path class="st0" d="M345.293,131.536V99.417c0-30.758-24.924-55.691-55.692-55.691H55.691C24.924,43.726,0,68.659,0,99.417V273.8 c0,30.758,24.924,55.691,55.691,55.691h20.512l-16.674,83.354l114.068-83.354h21.383V218.482c0-47.938,39-86.946,86.948-86.946 H345.293z"></path> <path class="st0" d="M456.309,162.792H281.928c-30.767,0-55.692,24.933-55.692,55.691v125.118 c0,30.758,24.925,55.691,55.692,55.691h86.406l94.394,68.982l-13.797-68.982h7.378c30.758,0,55.691-24.933,55.691-55.691V218.482 C512,187.724,487.067,162.792,456.309,162.792z"></path> </g> </g></svg>
+                    </div>
+
+                    <div id="messengerwindow" class="messengerwindow">
+                        <div id="messengerheader" class="messengerheader">
+                            <div>Contact Us!</div>
+                            <div><svg fill="var(--primarytextcolor)" height="24px" width="24px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490.68 490.68" xml:space="preserve" stroke="#FFC0CB" stroke-width="3.4347250000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M490.244,210.3c0-116.1-94.1-210.3-210.3-210.3c-70.9,0-133.7,35.1-171.7,88.9l16,16c33.8-49.9,90.9-82.6,155.7-82.6 c103.8,0,188,84.2,188,188c0,64.7-32.7,121.7-82.4,155.5l16,16C455.244,343.8,490.244,281.1,490.244,210.3z"></path> </g> <path d="M334.644,346.2c-14-14-36.9-15.5-51.7-2.3c-25.4,25.4-33.8,22.1-43.1,12.4L133.744,251c-9.7-9.7-13-17.7,12.4-43.1 c13.2-14.8,11.7-37.7-2.3-51.7L84.044,96c-14-14-36.5-15.5-51.3-2.7c-50.6,45.6-39,153.5,15.5,204l146.1,146.1 c49.2,52.2,153.8,66.7,202.8,15.2c12.8-14.8,11.3-37.3-2.7-51.3L334.644,346.2z"></path> <g> <g> <path d="M275.844,262.7h-71.7c-6.9,0-12.5-5.6-12.5-12.5c0-24.7,59.8-71.5,63-74.2c3.2-3.7,4.9-8.3,4.9-13.2 c0-11.1-9.1-20.2-20.2-20.2c-11.1,0-20.2,9.1-20.2,20.2c0,6.9-5.6,12.5-12.5,12.5s-12.5-5.6-12.5-12.5 c0-24.9,20.3-45.2,45.2-45.2s45.2,20.3,45.2,45.2c0,11.5-4.3,22.4-12.1,30.8c-0.4,0.4-0.8,0.8-1.2,1.2 c-18,14.8-35.3,31.3-45.5,42.9h50.1c6.9,0,12.5,5.6,12.5,12.5C288.344,257.1,282.744,262.7,275.844,262.7z"></path> </g> <g> <path d="M368.244,264.5c-6.9,0-12.5-5.6-12.5-12.5v-16.1h-52c-4.6,0-8.9-2.6-11.1-6.7s-1.9-9.1,0.8-12.9l64.5-93.3 c3.1-4.5,8.8-6.4,14-4.8c5.2,1.6,8.8,6.5,8.8,11.9v80.8h14.3c6.9,0,12.5,5.6,12.5,12.5s-5.6,12.5-12.5,12.5h-14.3V252 C380.744,258.9,375.144,264.5,368.244,264.5z M327.544,210.9h28.2v-40.7L327.544,210.9z"></path> </g> </g> </g> </g> </g></svg></div>
+                            <div>Recent Conversations</div>
+                        </div>
+
+                        <div id="messengerdisplay" class="messengerdisplay">
+                            <div id="messengerdisplay-padding" class="messengerdisplay-padding">
+
+                                <form name="messagerdisplay-existingchatroom-form" class="messagerdisplay-existingchatroom-form">
+                                    <button id="fl0000" name="messagerdisplay-existingchat" class="messagerdisplay-existingchat" type="submit">
+                                        <div class="existingchat-icon"><svg viewBox="0 0 24 24" id="Layer_1" height="42px" width="42px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;stroke:#020202;stroke-miterlimit:10;stroke-width:1.91px;}</style></defs><path class="cls-1" d="M18.68,8.16V15.8a2.86,2.86,0,0,1-2.86,2.86H13.91v2.86L8.18,18.66H4.36A2.86,2.86,0,0,1,1.5,15.8V8.16A2.86,2.86,0,0,1,4.36,5.3H15.82A2.86,2.86,0,0,1,18.68,8.16Z"></path><path class="cls-1" d="M18.68,14.84h1A2.86,2.86,0,0,0,22.5,12V4.34a2.86,2.86,0,0,0-2.86-2.86H8.18A2.86,2.86,0,0,0,5.32,4.34v1"></path><line class="cls-1" x1="5.32" y1="11.98" x2="7.23" y2="11.98"></line><line class="cls-1" x1="9.14" y1="11.98" x2="11.05" y2="11.98"></line><line class="cls-1" x1="12.95" y1="11.98" x2="14.86" y2="11.98"></line></g></svg></div>
+                                        <div class="existingchat-content">
+                                            <p class="existingchat-content-title"><b>Faithfully Lashed Studio</b></p>
+                                            <p class="existingchat-content-subtitle">Need help booking or choosing a set?</p>
+                                        </div>
+                                    </button>
+                                </form>
+
+                                <div id="messagerdisplay-chatroom" name="messagerdisplay-chatroom" class="messagerdisplay-chatroom" style="grid-area:item-3;">
+                                    <div class="chatroom-content">
+                                        <div class="chatroom-display">
+                                            <h2 class="chatroom-id">Room ID: <span id="chatroom-roomcode" name="chatroom-roomcode" class="chatroom-roomcode"></span></h2>
+                                            <div id="chatroom-messages-display" name="chatroom-messages-display" class="chatroom-messages-display"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="messengertools" class="messengertools">
+                            <form id="newchatroomform" name="newchatroomform" class="newchatroomform" method="post">
+                                <input id="messengertools-newchatroom-subject" name="messengertools-newchatroom-subject" class="messengertools-newchatroom-subject" type="text" placeholder="provide a new chat subject" rows="1">
+                                <button id="messengertools-newchatroom-btn" name="messengertools-newchatroom-btn" class="messengertools-newchatroom-btn messengerbtn-hover messengersvg-hover" type="submit"><svg style="display:grid;place-self:center;margin-left:-1px;" fill="black" stroke="black" color="black" trace="black" width="87%" height="87%" viewBox="0 0 24.00 21.00" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.696"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="black" stroke-width="1.152"><path d="M20 2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3v3.767L13.277 18H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14h-7.277L9 18.233V16H4V4h16v12z"></path><path d="M11 14h2v-3h3V9h-3V6h-2v3H8v2h3z"></path></g><g id="SVGRepo_iconCarrier"><path d="M20 2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3v3.767L13.277 18H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14h-7.277L9 18.233V16H4V4h16v12z"></path><path d="M11 14h2v-3h3V9h-3V6h-2v3H8v2h3z"></path></g></svg></button>
+                            </form>
+
+                            <form id="newmessageform" name="newmessageform" class="newmessageform">
+                                <input id="messengertools-messageinput" name="messengertools-messageinput" class="messengertools-messageinput" placeholder="message..." type="text" rows="3">
+                                <button id="messengertools-sendmessage-btn" name="messengertools-sendmessage-btn" class="messengertools-sendmessage-btn messengerbtn-hover messengersvg-hover2">
+                                    <svg style="display:grid;place-self:center;margin-left:0px;margin-top:4px;" viewBox="-0.96 -0.96 25.92 25.92" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.384"></g><g id="SVGRepo_iconCarrier"> <path d="M18.8951 3.61502C19.7248 3.37794 20.492 4.1451 20.2549 4.97489L16.2553 18.9736C15.8267 20.4736 13.823 20.7554 12.9973 19.4317L10.1999 14.947C9.87715 14.4296 9.44039 13.9928 8.92298 13.6701L4.43823 10.8726C3.11455 10.047 3.39632 8.04323 4.89636 7.61465L18.8951 3.61502Z" stroke="#000000" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M10.1924 13.6777L13.7279 10.1422" stroke="#000000" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                </button>
+                            </form>
+
+                            <button class="messengertools-closemessenger-btn messengertools-endchatroom-switch messengerbtn-hover endchat">&#10008;</button>
+                        </div>
+
+                    </div>
+
+
+                </div id="messenger">
+
+
+            </section id="hiddensection">
+
+
+        </main>
+
+        <footer data-reveal data-delay="4" class="reveal" data-direction="bottom">
+
+            <div>
+                <div class="footer-tagline"><strong> your lashes, your routine, your peace 🤍</strong></div>
+                <div class="footer-contactinfo"><strong>Nashville, TN &nbsp;|&nbsp; (813) 686-5014 </strong></div>
+            </div>
+
+            <div class="footer-socialmedia">
+                <h1 style="font-family:'nunito'; font-size:1.09rem;">Follow&nbsp;•&nbsp;</h1>
+
+                <!-- &nbsp; -->
+
+                <a class="navhover" href="https://www.instagram.com/faithfullylashedstudio"><svg height="2rem" width="2rem" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 567.034 567.034" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="XMLID_13_"> <linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="275.517" y1="4.5714" x2="275.517" y2="549.7202" gradientTransform="matrix(1 0 0 -1 0 554)"> <stop offset="0" style="stop-color:#E09B3D"></stop> <stop offset="0.3" style="stop-color:#C74C4D"></stop> <stop offset="0.6" style="stop-color:#C21975"></stop> <stop offset="1" style="stop-color:#7024C4"></stop> </linearGradient> <path id="XMLID_17_" style="fill:url(#XMLID_2_);" d="M386.878,0H164.156C73.64,0,0,73.64,0,164.156v222.722 c0,90.516,73.64,164.156,164.156,164.156h222.722c90.516,0,164.156-73.64,164.156-164.156V164.156 C551.033,73.64,477.393,0,386.878,0z M495.6,386.878c0,60.045-48.677,108.722-108.722,108.722H164.156 c-60.045,0-108.722-48.677-108.722-108.722V164.156c0-60.046,48.677-108.722,108.722-108.722h222.722 c60.045,0,108.722,48.676,108.722,108.722L495.6,386.878L495.6,386.878z"></path> <linearGradient id="XMLID_3_" gradientUnits="userSpaceOnUse" x1="275.517" y1="4.5714" x2="275.517" y2="549.7202" gradientTransform="matrix(1 0 0 -1 0 554)"> <stop offset="0" style="stop-color:#E09B3D"></stop> <stop offset="0.3" style="stop-color:#C74C4D"></stop> <stop offset="0.6" style="stop-color:#C21975"></stop> <stop offset="1" style="stop-color:#7024C4"></stop> </linearGradient> <path id="XMLID_81_" style="fill:url(#XMLID_3_);" d="M275.517,133C196.933,133,133,196.933,133,275.516 s63.933,142.517,142.517,142.517S418.034,354.1,418.034,275.516S354.101,133,275.517,133z M275.517,362.6 c-48.095,0-87.083-38.988-87.083-87.083s38.989-87.083,87.083-87.083c48.095,0,87.083,38.988,87.083,87.083 C362.6,323.611,323.611,362.6,275.517,362.6z"></path> <linearGradient id="XMLID_4_" gradientUnits="userSpaceOnUse" x1="418.306" y1="4.5714" x2="418.306" y2="549.7202" gradientTransform="matrix(1 0 0 -1 0 554)"> <stop offset="0" style="stop-color:#E09B3D"></stop> <stop offset="0.3" style="stop-color:#C74C4D"></stop> <stop offset="0.6" style="stop-color:#C21975"></stop> <stop offset="1" style="stop-color:#7024C4"></stop> </linearGradient> <circle id="XMLID_83_" style="fill:url(#XMLID_4_);" cx="418.306" cy="134.072" r="34.149"></circle> </g> </g></svg></a>
+
+                <!-- &nbsp; -->
+
+                <a class="navhover" href="https://www.facebook.com/people/Faithfully-Lashed/100066302210803/#"><svg height="2rem" width="2rem" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 428.788 428.788" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#475993;" d="M353.701,0H55.087C24.665,0,0.002,24.662,0.002,55.085v298.616c0,30.423,24.662,55.085,55.085,55.085 h147.275l0.251-146.078h-37.951c-4.932,0-8.935-3.988-8.954-8.92l-0.182-47.087c-0.019-4.959,3.996-8.989,8.955-8.989h37.882 v-45.498c0-52.8,32.247-81.55,79.348-81.55h38.65c4.945,0,8.955,4.009,8.955,8.955v39.704c0,4.944-4.007,8.952-8.95,8.955 l-23.719,0.011c-25.615,0-30.575,12.172-30.575,30.035v39.389h56.285c5.363,0,9.524,4.683,8.892,10.009l-5.581,47.087 c-0.534,4.506-4.355,7.901-8.892,7.901h-50.453l-0.251,146.078h87.631c30.422,0,55.084-24.662,55.084-55.084V55.085 C408.786,24.662,384.124,0,353.701,0z"></path> </g></svg></a>
+            </div>
+
+            <div class="footer-copyright"><strong>Copyright © 2026 Faithfully Lashed Studio LLC</strong></div>
+
+        </footer>
+
+        <br>
+
+    </body>
+        <div id="dashboardwindow" class="dashboardwindow">
+
+            <div id="dashboard-header" class="dashboard-header">
+                <div id="dashboard-header-profilepicture" class="dashboard-header-profilepicture profile-picture-wrapper">
+                    <img id="profileimage" class="profileimage" data-databasekey="profileimage" src="/images/defaultprofilepicture.png" height="100%" width="100%">
+                </div>
+
+                <div class="dashboard-header-profilewelcome">
+                    <div id="dashboard-header-accountmessage" class="dashboard-header-accountmessage" data-databasekey="message"></div>
+                    <!-- <div id="accountname" class="accountname" style="display:none; font-size: .9rem; background: none;"></div> -->
+                    <!-- <div id="accountmessage" class="accountmessage" style="font-size: .9rem; background: none;"></div> -->
+                    <!-- <div id="membershipstatus" class="membershipstatus" style="display:none; font-size: .9rem; background: none;"></div> -->
+                </div>
+
+
+                <div class="dashboard-header-profileinfo">
+                    <div id="dashboard-header-accountname" class="dashboard-header-accountname" data-databasekey="fullname"></div>
+                    <!-- <div id="accountmessage" class="accountmessage" style="font-size: .9rem; background: none;"></div> -->
+                    <div id="dashboard-header-membershipstatus" class="dashboard-header-membershipstatus" data-databasekey="membership" style="font-size: 1rem; background: none;"></div>
+                </div>
+
+
+                <div id="dashboard-header-notifications" class="dashboard-header-notifications navhover3 notifications-buttonhover" data-databasekey="notifications">
+                    <button>
+                        <svg class="dashboardbtniconx" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="2.4rem" height="2.4rem" stroke-width=".024rem"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9.75005 4.75C9.33584 4.75 9.00005 5.08579 9.00005 5.5C9.00005 5.91421 9.33584 6.25 9.75005 6.25V4.75ZM12.6751 6.25C13.0893 6.25 13.4251 5.91421 13.4251 5.5C13.4251 5.08579 13.0893 4.75 12.6751 4.75V6.25ZM9.48794 17.0191C9.48249 16.605 9.14232 16.2736 8.72814 16.2791C8.31396 16.2845 7.98262 16.6247 7.98807 17.0389L9.48794 17.0191ZM11.2126 19.5L11.2228 18.7501C11.216 18.75 11.2092 18.75 11.2023 18.7501L11.2126 19.5ZM14.437 17.0389C14.4425 16.6247 14.1111 16.2845 13.697 16.2791C13.2828 16.2736 12.9426 16.605 12.9372 17.0191L14.437 17.0389ZM8.73703 17.779C9.15124 17.779 9.48703 17.4432 9.48703 17.029C9.48703 16.6148 9.15124 16.279 8.73703 16.279V17.779ZM7.63723 17.029L7.631 17.779H7.63723V17.029ZM5.85005 15.168L6.60005 15.1732V15.168H5.85005ZM6.57058 12.676L5.82897 12.5641L5.82888 12.5647L6.57058 12.676ZM6.76558 11.276L7.50406 11.4069C7.50578 11.3972 7.50731 11.3875 7.50865 11.3777L6.76558 11.276ZM11.2126 7.147L11.2433 6.39763C11.2228 6.39679 11.2022 6.39679 11.1817 6.39763L11.2126 7.147ZM15.6595 11.273L14.9165 11.3751C14.9177 11.3836 14.919 11.392 14.9204 11.4004L15.6595 11.273ZM15.8545 12.673L16.5962 12.5617L16.596 12.5605L15.8545 12.673ZM16.5751 15.165L15.825 15.165L15.8251 15.1706L16.5751 15.165ZM14.7879 17.027L14.7879 17.777L14.7941 17.777L14.7879 17.027ZM13.6871 16.277C13.2729 16.277 12.9371 16.6128 12.9371 17.027C12.9371 17.4412 13.2729 17.777 13.6871 17.777V16.277ZM8.73703 16.277C8.32281 16.277 7.98703 16.6128 7.98703 17.027C7.98703 17.4412 8.32281 17.777 8.73703 17.777V16.277ZM13.6871 17.777C14.1013 17.777 14.4371 17.4412 14.4371 17.027C14.4371 16.6128 14.1013 16.277 13.6871 16.277V17.777ZM9.75005 6.25H12.6751V4.75H9.75005V6.25ZM7.98807 17.0389C8.01146 18.8183 9.4421 20.2742 11.2228 20.2499L11.2023 18.7501C10.2859 18.7625 9.50091 18.006 9.48794 17.0191L7.98807 17.0389ZM11.2023 20.2499C12.983 20.2742 14.4136 18.8183 14.437 17.0389L12.9372 17.0191C12.9242 18.006 12.1392 18.7625 11.2228 18.7501L11.2023 20.2499ZM8.73703 16.279H7.63723V17.779H8.73703V16.279ZM7.64345 16.279C7.08063 16.2744 6.59573 15.7972 6.60003 15.1732L5.10007 15.1628C5.09031 16.5785 6.20512 17.7671 7.631 17.779L7.64345 16.279ZM6.60005 15.168C6.60005 14.891 6.69326 14.6047 6.85708 14.1992C7.00452 13.8342 7.23096 13.3291 7.31227 12.7873L5.82888 12.5647C5.78052 12.8869 5.6467 13.1908 5.46629 13.6373C5.30227 14.0433 5.10005 14.571 5.10005 15.168H6.60005ZM7.31219 12.7879C7.40448 12.1759 7.4489 11.7181 7.50406 11.4069L6.02709 11.1451C5.97305 11.4499 5.90047 12.0901 5.82897 12.5641L7.31219 12.7879ZM7.50865 11.3777C7.77569 9.42625 9.35923 7.97389 11.2434 7.89637L11.1817 6.39763C8.54483 6.50613 6.38434 8.53009 6.0225 11.1743L7.50865 11.3777ZM11.1818 7.89637C13.0651 7.97369 14.6484 9.42473 14.9165 11.3751L16.4025 11.1709C16.0392 8.52798 13.8791 6.50584 11.2433 6.39763L11.1818 7.89637ZM14.9204 11.4004C14.9759 11.7223 15.0202 12.1736 15.113 12.7855L16.596 12.5605C16.525 12.0924 16.4504 11.4457 16.3986 11.1456L14.9204 11.4004ZM15.1128 12.7843C15.1941 13.3261 15.4206 13.8312 15.568 14.1962C15.7318 14.6017 15.8251 14.888 15.8251 15.165H17.3251C17.3251 14.568 17.1228 14.0403 16.9588 13.6343C16.7784 13.1878 16.6446 12.8839 16.5962 12.5617L15.1128 12.7843ZM15.8251 15.1706C15.8297 15.7949 15.3447 16.2724 14.7817 16.277L14.7941 17.777C16.2205 17.7651 17.3355 16.5756 17.325 15.1594L15.8251 15.1706ZM14.7879 16.277H13.6871V17.777H14.7879V16.277ZM8.73703 17.777H13.6871V16.277H8.73703V17.777Z" fill="#000000"></path> </g></svg>
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="dashboard-navigation">
+
+                <button id="dashboard-navigation-profile" class="dashboard-navigation-section navhover3" data-window="profile-display" style="grid-area:profilebtn;width:fit-content;padding:0px;">
+                    <div class="dashboard-navigation-btn">
+                        <svg class="dashboard-btnicon" viewBox="-2 -2 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" width="2.64rem" height="2.64rem" stroke="#000000" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3 5C2.44772 5 2 5.44771 2 6V18C2 18.5523 2.44772 19 3 19H21C21.5523 19 22 18.5523 22 18V6C22 5.44772 21.5523 5 21 5H3ZM0 6C0 4.34315 1.34314 3 3 3H21C22.6569 3 24 4.34315 24 6V18C24 19.6569 22.6569 21 21 21H3C1.34315 21 0 19.6569 0 18V6ZM6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12C6.67157 12 6 11.3284 6 10.5ZM10.1756 12.7565C10.69 12.1472 11 11.3598 11 10.5C11 8.567 9.433 7 7.5 7C5.567 7 4 8.567 4 10.5C4 11.3598 4.31002 12.1472 4.82438 12.7565C3.68235 13.4994 3 14.7069 3 16C3 16.5523 3.44772 17 4 17C4.55228 17 5 16.5523 5 16C5 15.1145 5.80048 14 7.5 14C9.19952 14 10 15.1145 10 16C10 16.5523 10.4477 17 11 17C11.5523 17 12 16.5523 12 16C12 14.7069 11.3177 13.4994 10.1756 12.7565ZM13 8C12.4477 8 12 8.44772 12 9C12 9.55228 12.4477 10 13 10H19C19.5523 10 20 9.55228 20 9C20 8.44772 19.5523 8 19 8H13ZM14 12C13.4477 12 13 12.4477 13 13C13 13.5523 13.4477 14 14 14H18C18.5523 14 19 13.5523 19 13C19 12.4477 18.5523 12 18 12H14Z" fill="#000000"></path> </g></svg>
+                        <div class="dashboard-btntext">Profile</div>
+                    </div>
+                </button>
+
+                <button id="dashboard-navigation-membership" class="dashboard-navigation-section navhover5" data-window="membership-display" style="grid-area:membershipbtn;width:fit-content;padding:0px;">
+                    <div class="dashboard-navigation-btn">
+                        <svg class="dashboard-btnicon" viewBox="1 1 24 22" fill="none" width="2.84rem" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 19L18 19" stroke="#000000" stroke-width="1.74" stroke-linecap="round" stroke-linejoin="round"></path> <path stroke-width="1.74" d="M16.5585 16H7.44152C6.58066 16 5.81638 15.4491 5.54415 14.6325L3.70711 9.12132C3.44617 8.3385 4.26195 7.63098 5 8L5.71067 8.35533C6.48064 8.74032 7.41059 8.58941 8.01931 7.98069L10.5858 5.41421C11.3668 4.63317 12.6332 4.63316 13.4142 5.41421L15.9807 7.98069C16.5894 8.58941 17.5194 8.74032 18.2893 8.35533L19 8C19.7381 7.63098 20.5538 8.3385 20.2929 9.12132L18.4558 14.6325C18.1836 15.4491 17.4193 16 16.5585 16Z" stroke="#000000" stroke-width="2" stroke-linejoin="round"></path> </g></svg>
+                        <span class="dashboard-btntext">Membership</span>
+                    </div>
+                </button>
+
+                <button id="dashboard-navigation-cart" class="dashboard-navigation-section navhover5" data-window="cart-display" style="grid-area:cartbtn;width:fit-content;padding:0px;">
+                    <div class="dashboard-navigation-btn">
+                        <svg class="dashboard-btnicon" viewBox="89.712 84.712 342.6 342.6" xmlns="http://www.w3.org/2000/svg" width="2.64rem" height="2.64rem" stroke-width=".24rem" stroke-linecap="round" stroke-linejoin="round"><title>Cart</title><g data-name="Shopping Cart" id="Shopping_Cart" stroke-linecap="round" stroke-linejoin="round"><g data-name="Shopping Cart" id="Shopping_Cart-2" stroke-linecap="round" stroke-linejoin="round"><path stroke-linecap="round" stroke-linejoin="round" d="M351.9,329.5063H206.81l-3.0723-12.56H368.1614l26.63-116.019L177.5618,174.8861l-9.9526-58.0885h-50.4v21.945h31.8934l35.2332,191.2465a32.927,32.927,0,1,0,36.3628,21.4622H320.9431A32.8248,32.8248,0,1,0,351.9,329.5063ZM181.4272,197.4486l186.5106,22.3589-17.2592,75.194H198.9174Z"/></g></g></svg>
+                        <div class="dashboard-btntext">Cart</div>
+                    </div>
+                </button>
+
+                <button id="dashboard-navigation-calendar" class="dashboard-navigation-section navhover5" data-window="calendar-display" style="grid-area:calendarbtn;width:fit-content;padding:0px;">
+                    <div class="dashboard-navigation-btn">
+                        <svg class="dashboard-btnicon" viewBox="0 0 24 24" fill="none" width="2.6rem" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 10H21M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        <div class="dashboard-btntext">Calendar</div>
+                    </div>
+                </button>
+
+                <button id="dashboard-navigation-history" class="dashboard-navigation-section navhover3" data-window="history-display" style="grid-area:historybtn;width:fit-content;padding:0px;">
+                    <div class="dashboard-navigation-btn">
+                        <svg class="dashboard-btnicon" viewBox="0 0 24 24" fill="none" width="2.6rem" stroke-width=".024rem" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0055 2H12.9945C14.3805 1.99999 15.4828 1.99999 16.3716 2.0738C17.2819 2.14939 18.0575 2.30755 18.7658 2.67552C19.8617 3.24477 20.7552 4.13829 21.3245 5.23415C21.6925 5.94253 21.8506 6.71811 21.9262 7.62839C22 8.51722 22 9.6195 22 11.0055V12.9945C22 14.3805 22 15.4828 21.9262 16.3716C21.8506 17.2819 21.6925 18.0575 21.3245 18.7658C20.7552 19.8617 19.8617 20.7552 18.7658 21.3245C18.0575 21.6925 17.2819 21.8506 16.3716 21.9262C15.4828 22 14.3805 22 12.9945 22H11.0055C9.6195 22 8.51722 22 7.62839 21.9262C6.71811 21.8506 5.94253 21.6925 5.23415 21.3245C4.13829 20.7552 3.24477 19.8617 2.67552 18.7658C2.30755 18.0575 2.14939 17.2819 2.0738 16.3716C1.99999 15.4828 1.99999 14.3805 2 12.9945V11.0055C1.99999 9.61949 1.99999 8.51721 2.0738 7.62839C2.14939 6.71811 2.30755 5.94253 2.67552 5.23415C3.24477 4.13829 4.13829 3.24477 5.23415 2.67552C5.94253 2.30755 6.71811 2.14939 7.62839 2.0738C8.51721 1.99999 9.61949 1.99999 11.0055 2ZM7.79391 4.06694C7.00955 4.13207 6.53142 4.25538 6.1561 4.45035C5.42553 4.82985 4.82985 5.42553 4.45035 6.1561C4.25538 6.53142 4.13207 7.00955 4.06694 7.79391C4.0008 8.59025 4 9.60949 4 11.05V12.95C4 14.3905 4.0008 15.4097 4.06694 16.2061C4.13207 16.9905 4.25538 17.4686 4.45035 17.8439C4.82985 18.5745 5.42553 19.1702 6.1561 19.5497C6.53142 19.7446 7.00955 19.8679 7.79391 19.9331C8.59025 19.9992 9.60949 20 11.05 20H12.95C14.3905 20 15.4097 19.9992 16.2061 19.9331C16.9905 19.8679 17.4686 19.7446 17.8439 19.5497C18.5745 19.1702 19.1702 18.5745 19.5497 17.8439C19.7446 17.4686 19.8679 16.9905 19.9331 16.2061C19.9992 15.4097 20 14.3905 20 12.95V11.05C20 9.60949 19.9992 8.59025 19.9331 7.79391C19.8679 7.00955 19.7446 6.53142 19.5497 6.1561C19.1702 5.42553 18.5745 4.82985 17.8439 4.45035C17.4686 4.25538 16.9905 4.13207 16.2061 4.06694C15.4097 4.0008 14.3905 4 12.95 4H11.05C9.60949 4 8.59025 4.0008 7.79391 4.06694ZM11.8284 6.75736C12.3807 6.75736 12.8284 7.20507 12.8284 7.75736V12.7245L16.3553 14.0653C16.8716 14.2615 17.131 14.8391 16.9347 15.3553C16.7385 15.8716 16.1609 16.131 15.6447 15.9347L11.4731 14.349C11.085 14.2014 10.8284 13.8294 10.8284 13.4142V7.75736C10.8284 7.20507 11.2761 6.75736 11.8284 6.75736Z" fill="#000000"></path> </g></svg>
+                        <div class="dashboard-btntext">History</div>
+                    </div>
+                </button>
+
+                <button id="dashboard-navigation-settings" class="dashboard-navigation-section navhover3" data-window="settings-display" style="grid-area:settingsbtn;width:fit-content;padding:0px;">
+                    <div class="dashboard-navigation-btn">
+                        <svg class="dashboard-btnicon" viewBox="0 -1 24 25" fill="none" width="2.4rem" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.168"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M2 20C2 19.4477 2.44772 19 3 19H10C10.5523 19 11 19.4477 11 20C11 20.5523 10.5523 21 10 21H3C2.44772 21 2 20.5523 2 20Z" fill="#000000"></path> <path d="M15 19V17C15 16.4477 14.5523 16 14 16C13.4477 16 13 16.4477 13 17V23C13 23.5523 13.4477 24 14 24C14.5523 24 15 23.5523 15 23V21H21C21.5523 21 22 20.5523 22 20C22 19.4477 21.5523 19 21 19H15Z" fill="#000000"></path> <path d="M12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13L21 13C21.5523 13 22 12.5523 22 12C22 11.4477 21.5523 11 21 11L12 11Z" fill="#000000"></path> <path d="M2 12C2 11.4477 2.44772 11 3 11H7V9C7 8.44772 7.44772 8 8 8C8.55228 8 9 8.44772 9 9V15C9 15.5523 8.55228 16 8 16C7.44772 16 7 15.5523 7 15V13H3C2.44772 13 2 12.5523 2 12Z" fill="#000000"></path> <path d="M15 3V1C15 0.447716 14.5523 0 14 0C13.4477 0 13 0.447716 13 1V7C13 7.55228 13.4477 8 14 8C14.5523 8 15 7.55228 15 7V5H21C21.5523 5 22 4.55228 22 4C22 3.44772 21.5523 3 21 3H15Z" fill="#000000"></path> <path d="M2 4C2 4.55228 2.44772 5 3 5H10C10.5523 5 11 4.55228 11 4C11 3.44772 10.5523 3 10 3H3C2.44772 3 2 3.44772 2 4Z" fill="#000000"></path> </g></svg>
+                        <div class="dashboard-btntext">Settings</div>
+                    </div>
+                </button>
+
+                <button id="dashboard-navigation-admin" class="dashboard-navigation-admin dashboard-navigation-section adminbtn navhover3" data-window="admin-display" style="display:none; grid-area:adminbtn;width:fit-content;padding:0px;">
+                    <div class="dashboard-navigation-btn">
+                        <svg class="dashboard-btnicon" viewBox="0 -2 32 32" id="svg5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="2.64rem" height="2.64rem" fill="#000000" stroke="#000000" stroke-width="0.256"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs id="defs2"></defs> <g id="layer1" transform="translate(-300,-436)"> <path d="m 307,458.01367 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 4 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z" id="path453687" style="color:#000000;fill:#000000;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none"></path> <path d="m 323,455.01367 a 1,1 0 0 0 -0.0508,0.006 1.0001,1.0001 0 0 0 -0.11914,0.0137 1,1 0 0 0 -0.10547,0.0254 1.0001,1.0001 0 0 0 -0.10352,0.0352 1,1 0 0 0 -0.10547,0.0508 1.0001,1.0001 0 0 0 -0.0898,0.0566 1,1 0 0 0 -0.0859,0.0684 1.0001,1.0001 0 0 0 -0.0469,0.0371 l -2,2 a 1,1 0 0 0 0,1.41406 1,1 0 0 0 1.41406,0 L 322,458.42773 v 3.58594 a 1,1 0 0 0 1,1 1,1 0 0 0 1,-1 v -3.58594 l 0.29297,0.29297 a 1,1 0 0 0 1.41406,0 1,1 0 0 0 0,-1.41406 l -1.9707,-1.9707 a 1,1 0 0 0 -0.40625,-0.26563 1.0001,1.0001 0 0 0 -0.002,0 1.0001,1.0001 0 0 0 -0.004,-0.002 1,1 0 0 0 -0.19922,-0.0449 1.0001,1.0001 0 0 0 -0.0273,-0.004 1,1 0 0 0 -0.0977,-0.006 z" id="path453663" style="color:#000000;fill:#000000;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none"></path> <path d="m 307,450.01367 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 4 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z" id="path453649" style="color:#000000;fill:#000000;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none"></path> <path d="m 307,442.01367 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 4 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z" id="path453625" style="color:#000000;fill:#000000;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none"></path> <path d="m 305,438.01367 c -1.6447,0 -3,1.3553 -3,3 v 4 c 0,0.76628 0.29675,1.46716 0.77734,2 -0.48059,0.53284 -0.77734,1.23372 -0.77734,2 v 4 c 0,0.76628 0.29675,1.46716 0.77734,2 -0.48059,0.53284 -0.77734,1.23372 -0.77734,2 v 4 c 0,1.6447 1.3553,3 3,3 h 13.11133 c 1.26351,1.23579 2.98973,2 4.88867,2 3.85414,0 7,-3.14585 7,-7 0,-2.78161 -1.63913,-5.19487 -4,-6.32226 v -3.67774 c 0,-0.76628 -0.29675,-1.46716 -0.77734,-2 0.48059,-0.53284 0.77734,-1.23372 0.77734,-2 v -4 c 0,-1.6447 -1.3553,-3 -3,-3 z m 0,2 h 18 c 0.5713,0 1,0.42871 1,1 v 4 c 0,0.5713 -0.4287,1 -1,1 h -18 c -0.5713,0 -1,-0.4287 -1,-1 v -4 c 0,-0.57129 0.4287,-1 1,-1 z m 0,8 h 18 c 0.5713,0 1,0.42871 1,1 v 3.07227 c -0.32711,-0.0472 -0.66021,-0.0723 -1,-0.0723 -1.89894,0 -3.62516,0.76421 -4.88867,2 H 305 c -0.5713,0 -1,-0.4287 -1,-1 v -4 c 0,-0.57129 0.4287,-1 1,-1 z m 18,6 c 2.77327,0 5,2.22674 5,5 0,2.77327 -2.22673,5 -5,5 -1.44074,0 -2.73243,-0.602 -3.64258,-1.56836 a 1,1 0 0 0 -0.16797,-0.18554 C 318.44728,461.38795 318,460.25556 318,459.01367 c 0,-1.25636 0.45901,-2.39958 1.2168,-3.27539 a 1,1 0 0 0 0.0645,-0.0762 c 0.91337,-1.01394 2.23794,-1.64844 3.71875,-1.64844 z m -18,2 h 11.67773 c -0.43469,0.9103 -0.67773,1.92747 -0.67773,3 0,1.07253 0.24304,2.0897 0.67773,3 H 305 c -0.5713,0 -1,-0.4287 -1,-1 v -4 c 0,-0.57129 0.4287,-1 1,-1 z" id="path453607" style="color:#000000;fill:#000000;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none"></path> </g> </g></svg>
+                        <div class="dashboard-btntext">Admin</div>
+                    </div>
+                </button>
+
+                <button id="dashboard-navigation-signout" class="dashboard-navigation-section navhover5" data-window="signout-display" style="grid-area:signoutbtn;width:fit-content;padding:0px;">
+                    <a href="{{ url_for('logout') }}" class="dashboard-navigation-btn">
+                        <svg class="dashboard-btnicon" fill="#000000" viewBox=".4 0 24 24" id="sign-out-2" width="2.64rem" xmlns="http://www.w3.org/2000/svg" class="icon line"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.494"></g><g id="SVGRepo_iconCarrier"><polyline id="primary" points="18 9 21 12 18 15" style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width:1.8799999999999997;"></polyline><path id="primary-2" data-name="primary" d="M21,12H7m7,4v3a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V5A1,1,0,0,1,4,4h9a1,1,0,0,1,1,1V8" style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width:1.8799999999999997;"></path></g></svg>
+                        <div class="dashboard-btntext">Sign Out</div>
+                    </a>
+                </button>
+
+            </div>
+
+            <div id="dashboard-window-display" class="dashboard-window-display" style="grid-area:display; overflow:auto; width:100%; border: 1px solid rgba(255, 255, 255, 0.17); box-shadow: 0 4px 11px rgba(0, 0, 0, 0.24); border-radius:8px;">
+                <div id="profile-display" class="dashboard-display profile-display">{% include 'profile.html' %}</div>
+                <div id="membership-display" class="dashboard-display membership-display">{% include 'membership.html' %}</div>
+                <div id="cart-display" class="dashboard-display cart-display">{% include 'cartdisplay.html' %}</div>
+                <div id="calendar-display" class="dashboard-display calendar-display">{% include 'calendar.html' %}</div>
+                <div id="history-display" class="dashboard-display history-display">{% include 'history.html' %}</div>
+                <div id="settings-display" class="dashboard-display settings-display">{% include 'settings.html' %}</div>
+                <div id="signout-display" class="dashboard-display signout-display"></div>
+                <div id="admin-display" name="admindisplay" class="dashboard-display admin-display">{% include 'adminpanel.html' %}</div>
+            </div>
+
+        </div>
+</div>
+</html>
