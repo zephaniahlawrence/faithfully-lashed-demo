@@ -1220,7 +1220,7 @@ img.mailinglistimage2 {
 }
 .homepage-secondarygrid-highlights-hightlight3 {
     grid-area: highlights-hightlight3;
-    background: url('images/hybridlashes.gif') center center / cover no-repeat;
+    background: url('images/hybridlashes-optimized.gif') center center / cover no-repeat;
     border: 1px solid rgba(0, 0, 0, 0.49);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.42);
 }
