@@ -862,7 +862,7 @@ img.homepage-primarygrid-intro-portrait {
     position:relative;
     font-size:1rem;
     color:black;
-    background: url('/images/portrait1.jpg') center center / cover no-repeat;
+    background: url('images/portrait1.jpg') center center / cover no-repeat;
     /* background-color:transparent; */
     min-height:fit-content;
     /* min-height:calc-size(fit-content + 100px); */
@@ -921,7 +921,7 @@ img.homepage-primarygrid-intro-portrait {
     display:grid;
     font-size:1rem;
     color:black;
-    background: url('/images/portrait2.jpg') center center / 187% no-repeat;
+    background: url('images/portrait2.jpg') center center / 187% no-repeat;
     background-color:transparent;
     height:100%;
     width:100%;
@@ -935,7 +935,7 @@ img.homepage-primarygrid-intro-portrait {
     grid-area:homepage-primarygrid-mailinglist;
     display:grid;
     flex-direction:column;
-    background: url('/images/mlpart1.jpeg') center 0% / 100% 481px no-repeat;
+    background: url('images/mlpart1.jpeg') center 0% / 100% 481px no-repeat;
     gap:0;
     min-height:963px;
     width:100%;
@@ -976,7 +976,7 @@ img.mailinglistimage2 {
     max-width:100%;
     min-height:482px;
     max-height:482px;
-    background: url('/images/mlpart2.jpeg') center center / 100% 100% no-repeat;
+    background: url('images/mlpart2.jpeg') center center / 100% 100% no-repeat;
     padding:8px;
     align-content:center;
     /* align-content:space-evenly; */
@@ -1188,19 +1188,19 @@ img.mailinglistimage2 {
 
 .homepage-secondarygrid-services-lashes {
     grid-area: services-lashes;
-    background: url('/images/classic-fullset.jpeg') 40% 52% / cover no-repeat;
+    background: url('images/classic-fullset.jpeg') 40% 52% / cover no-repeat;
     border: 1px solid rgba(0, 0, 0, 0.49);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.42);
 }
 .homepage-secondarygrid-services-brows {
     grid-area: services-brows;
-    background: url('/images/deluxe-brow-treatment.webp') 60% 37% / 179% no-repeat;
+    background: url('images/deluxe-brow-treatment.webp') 60% 37% / 179% no-repeat;
     border: 1px solid rgba(0, 0, 0, 0.49);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.42);
 }
 .homepage-secondarygrid-services-facials {
     grid-area: services-facials;
-    background: url('/images/basic-glow-facial.jpeg') center center / cover no-repeat;
+    background: url('images/basic-glow-facial.jpeg') center center / cover no-repeat;
     border: 1px solid rgba(0, 0, 0, 0.49);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.42);
 }
@@ -1208,19 +1208,19 @@ img.mailinglistimage2 {
 
 .homepage-secondarygrid-highlights-hightlight1 {
     grid-area: highlights-hightlight1;
-    background: url('/images/lash-lift-tint.webp') 40% 52% / cover no-repeat;
+    background: url('images/lash-lift-tint.webp') 40% 52% / cover no-repeat;
     border: 1px solid rgba(0, 0, 0, 0.49);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.42);
 }
 .homepage-secondarygrid-highlights-hightlight2 {
     grid-area: highlights-hightlight2;
-    background: url('/images/classiclashes.gif') 60% 37% / 142% no-repeat;
+    background: url('images/classiclashes.gif') 60% 37% / 142% no-repeat;
     border: 1px solid rgba(0, 0, 0, 0.49);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.42);
 }
 .homepage-secondarygrid-highlights-hightlight3 {
     grid-area: highlights-hightlight3;
-    background: url('/images/hybridlashes.gif') center center / cover no-repeat;
+    background: url('images/hybridlashes.gif') center center / cover no-repeat;
     border: 1px solid rgba(0, 0, 0, 0.49);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.42);
 }
