@@ -1,0 +1,132 @@
+<!-- Core Flatpickr Assets -->
+<link rel="stylesheet" href="https://jsdelivr.net">
+<script src="https://jsdelivr.net"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- Confirm Date Plugin Assets -->
+<link rel="stylesheet" href="https://jsdelivr.net/dist/plugins/confirmDate/confirmDate.css">
+<script src="https://jsdelivr.net/dist/plugins/confirmDate/confirmDate.js"></script>
+
+<!-- Font Awesome (for the checkmark icon) -->
+<link rel="stylesheet" href="https://cloudflare.com">
+
+
+
+
+
+
+
+            <!-- <div id="reservation_datetime_input" class="flatpickr reservation_datetime_input" style="max-width:40%;"> -->
+                <!-- <input type="text" placeholder="Select Date.." data-input> -->
+                <!-- <a class="input-button" style="fill:#444" title="toggle" data-toggle=""><svg width="2rem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M14 2V1h-3v1H6V1H3v1H0v15h17V2h-3zM12 2h1v2h-1V2zM4 2h1v2H4V2zM16 16H1v-8.921h15V16zM1 6.079v-3.079h2v2h3V3h5v2h3V3h2v3.079H1z" fill="#000"></path></svg></a> -->
+                <!-- <a class="input-button" style="style="fill:#444"" title="toggle" data-toggle><i class="icon-calendar"></i></a> -->
+                <!-- <a class="input-button" title="toggle" data-toggle>
+                    <i class="icon-calendar"></i>
+                </a>
+                <a class="input-button" title="clear" data-clear><i class="icon-close"></i></a>
+            </div> -->
+<br><br><br><br><br><br><br><br><br>
+<div id="reservation_datetime_input" class="flatpickr">
+    <input id="reservation_datetime_input" type="text" placeholder="Select Date.." data-input> <!-- input is mandatory -->
+
+    <a class="input-button" title="toggle" data-toggle>
+        <i class="icon-calendar"></i>
+    </a>
+
+    <a class="input-button" title="clear" data-clear>
+        <i class="icon-close"></i>
+    </a>
+</div>
+
+
+
+
+<script>
+    import * as functions from './functions.js';
+    import * as globalvariables from './globalvariables.js';
+    Object.assign(globalThis, functions, globalvariables);
+
+
+    $(document).ready(function() {
+        const reservation_date_input = document.querySelector('.reservation_date_input');
+        const reservation_time_input = document.querySelector('.reservation_time_input');
+
+
+        fetch('/reservation_availability')
+        .then(response => response.json())
+        .then(async function(data) {
+
+
+
+
+            // Convert and format to Central Time
+            const options = {
+            timeZone: 'America/Chicago',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+            };
+
+
+            const reservations = data;
+            reservations.forEach(reservation => {
+                const unavailable_reservation_times = [];
+                const scheduled_reservation_time = new Date(reservation['reservation_datetime']);
+                console.log(scheduled_reservation_time);
+                // A sample UTC timestamp (ISO 8601 string)
+                const utcString = scheduled_reservation_time;
+                const date = new Date(utcString);
+                const scheduled_reservation_duration = reservation['reservation_duration'] * 60;
+                const scheduled_reservation_completion_time = new Date(scheduled_reservation_time);
+
+                scheduled_reservation_completion_time.setMinutes(scheduled_reservation_time.getMinutes() + scheduled_reservation_duration);
+                unavailable_reservation_times.push({ from: scheduled_reservation_time, to: scheduled_reservation_completion_time });
+
+                console.log(scheduled_reservation_completion_time);
+
+                const centralTimeStr = date.toLocaleString('en-US', options);
+                console.log(centralTimeStr); // "11/20/2026, 12:00:00 PM"
+
+                let configuration = {
+                    // wrap: true,
+                    dateFormat: "Y-m-d H:i",
+                    // enableTime: true,
+                    // time_24hr: true,
+                    // inline: true,
+                    // minTime: "08:00",
+                    // maxTime: "17:00",
+                    // minuteIncrement: 30,
+                    minDate: "today",
+                    maxDate: new Date().fp_incr(14),
+                    "plugins": [new confirmDatePlugin({
+                        confirmIcon: "<i class='fa fa-check'></i>", // your icon's html, if you wish to override
+                        confirmText: "CONFIRM",
+                        showAlways: true,
+                        theme: "light"
+                    })],
+                    "disable": [
+                        function(date) {
+                            // return true to disable
+                            return (date.getDay() === 0 || date.getDay() === 6);
+                        }
+                    ],
+                    "locale": { "firstDayOfWeek": 1 // start week on Monday
+                    }
+                };
+
+
+                flatpickr(".reservation_datetime_input", configuration);
+            });
+
+
+        })
+
+    });
+
+</script>
