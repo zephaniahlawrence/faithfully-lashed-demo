@@ -167,7 +167,11 @@ export function display_business_status() {
     current_date_times.forEach(current_date_time => { current_date_time.innerHTML = `${current_day}, ${current_time}${am_pm_status}`; });
     current_status_targets.forEach(current_status => {
         if ( (hours > current_hours['earliest']) || (hours <= current_hours['latest']) ) { current_status.innerHTML = `Open until ${current_hours['latest'] - 12}:00PM.`; current_status.style.color = '#0BC507'; }
-        if ( (hours < current_hours['earliest']) || (hours >= current_hours['latest']) ) { current_status.innerHTML = `Closed until ${current_hours['earliest']}:00AM.`; current_status.style.color = 'gray'; }
+        if ( (hours < current_hours['earliest']) || (hours >= current_hours['latest']) ) {
+            if (current_day_int === 6) { current_status.innerHTML = `Closed until Monday, ${openhours['weekday']['earliest']}:00AM.`; current_status.style.color = 'gray'; }
+            else { current_status.innerHTML = `Closed until ${current_hours['earliest']}:00AM.`; current_status.style.color = 'gray'; }    
+        }
+        if (current_day_int === 0) { current_status.innerHTML = `Closed until Monday, ${openhours['weekday']['earliest']}:00AM.`; current_status.style.color = 'gray'; }
         if ( openhours["holiday"].includes(current_holiday) ) { current_status.innerHTML = "Currently Closed, Happy Holidays!"; current_status.style.color = 'grey'; }
     });
 }
