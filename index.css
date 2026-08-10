@@ -415,11 +415,19 @@ i {
     mask-image:linear-gradient(
                 to bottom,
                 transparent 0%,
-                black 8%,
+                black 4%,
                 black 70%,
                 transparent 100%
             );
             /* 241, 236, 238 */
+    /* WebKit prefix required for Chrome, Safari, and Edge compatibility */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 4%,
+        black 70%,
+        transparent 100%
+    );
 }
 
 .header-padding-fade{
