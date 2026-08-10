@@ -414,7 +414,8 @@ i {
 .bannerimage{
     mask-image:linear-gradient(
                 to bottom,
-                black 0%,
+                transparent 0%,
+                black 4%,
                 black 70%,
                 transparent 100%
             );
